@@ -8,7 +8,7 @@ const userRouter = express.Router()
 userRouter.post("/register", singleUpload, register);
 userRouter.post("/login", login)
 userRouter.post("/logout", logout);
-userRouter.post("/profile/update", authUser, updateProfile);
+userRouter.post("/profile/update", authUser,singleUpload, updateProfile);
 
 export default userRouter;
 
