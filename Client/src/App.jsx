@@ -8,9 +8,14 @@ import Jobs from './components/Jobs'
 import Browse from './components/Browse'
 import Profile from './components/Profile'
 import JobDescription from './components/JobDescription'
+import Companies from './components/admin/Companies'
 
 
 const appRouter = createBrowserRouter([
+
+  // for student role
+
+
   {
     path: '/',
     element: <Home />
@@ -39,6 +44,14 @@ const appRouter = createBrowserRouter([
     path: "/profile",
     element: <Profile />
   },
+
+
+  // for admin role
+  {
+    path: "/admin/companies",
+    element: <Companies />
+  }
+
 
 
 ])
