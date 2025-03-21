@@ -16,7 +16,6 @@ function Profile() {
     const [open, setOpen] = useState(false)
     const { user } = useSelector(store => store.auth);
 
-    const resumeHave = true
     return (
         <>
             <Navbar />
@@ -26,7 +25,7 @@ function Profile() {
                     <div className='flex justify-between'>
                         <div className='flex items-center gap-4'>
                             <Avatar className="h-24 w-24">
-                                <AvatarImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXZlaUXIWozu3xqknYB3S9nknCPGFPAEVZLA&s" alt="profile" />
+                                <AvatarImage src={user?.profile?.profilePhoto} alt="profile" />
 
                             </Avatar>
                             <div>
@@ -69,7 +68,7 @@ function Profile() {
                         <div className='grid w-full items-center gap-1.5'>
                             <Label className="text-md font-bold">Resume</Label>
                             {
-                                resumeHave ? <a target='blank' href='https://google.com' className='text-blue-500 w-full hover:underline cursor-pointer'>as</a>
+                                user?.profile?.resume ? <a target='blank' href={user?.profile?.resume} className='text-blue-500 w-full hover:underline cursor-pointer'>{user?.profile?.resumeOriginalName}</a>
                                     : <span>NA</span>
                             }
                         </div>

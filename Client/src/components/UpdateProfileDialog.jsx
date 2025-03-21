@@ -38,6 +38,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
+        setLoading(true);
 
         try {
             const formData = new FormData();
@@ -65,9 +66,10 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         } catch (error) {
             console.log(error);
             toast.error(error.response.data.message);
-        }
-        console.log(input);
+        } finally {
+            setLoading(false);
 
+        }
         setOpen(false);
 
     }
