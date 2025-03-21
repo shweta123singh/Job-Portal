@@ -7,7 +7,7 @@ import { Job } from "../models/job.models.js";
 export const applyJob = async (req, res) => {
     try {
         const userId = req.id;
-        const jobId = req.params;
+        const jobId = req.params.id;
         if (!jobId) {
             return res.status(400).json({
                 message: "Job id is required",
@@ -135,7 +135,7 @@ export const updateStatus = async (req, res) => {
         const application = await Application.findByIdAndUpdate(applicationId, { status: status.toLowerCase() });
         return res.status(200).json({
             message: "Status updated successfully",
-            application,
+
             success: true,
         })
 
@@ -145,6 +145,5 @@ export const updateStatus = async (req, res) => {
 }
 
 
-// route checkup is left for application routers >>> time : 03:04:11 to 03:13:22 
 
 

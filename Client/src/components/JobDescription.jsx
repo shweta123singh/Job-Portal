@@ -35,7 +35,7 @@ const JobDescription = () => {
 
 
 
-  const isApplied = singleJob?.applications?.some(application => application.applicant === user._id) || false;
+  const isApplied = singleJob?.applications?.some(application => application.applicant === user?._id) || false;
 
   return (
     <div className='px-[6%] my-10'>
@@ -70,7 +70,7 @@ const JobDescription = () => {
         <h1 className='font-bold my-1'>Experience: <span className='pl-4 font-normal text-gray-800'>{singleJob?.experience} yrs</span></h1>
         <h1 className='font-bold my-1'>Salary: <span className='pl-4 font-normal text-gray-800'>{singleJob?.salary} LPA</span></h1>
         <h1 className='font-bold my-1'>Total Applicaants: <span className='pl-4 font-normal text-gray-800'>{singleJob?.applications?.length}</span></h1>
-        <h1 className='font-bold my-1'>Posted Date: <span className='pl-4 font-normal text-gray-800'>{singleJob.createdAt.split("T")[0]}</span></h1>
+        <h1 className='font-bold my-1'>Posted Date: <span className='pl-4 font-normal text-gray-800'>{singleJob?.createdAt.split("T")[0]}</span></h1>
       </div>
 
 

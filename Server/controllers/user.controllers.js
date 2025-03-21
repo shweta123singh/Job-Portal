@@ -31,12 +31,17 @@ export const register = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
+        const url = null;
+        if (file && cloudResponse) {
+            url = cloudResponse.secure_url;
+        }
+
         await User.create({
             fullname, email, phoneNumber,
             password: hashedPassword,
             role,
             profile: {
-                profilePhoto: cloudResponse.secure_url,
+                profilePhoto: url,
             }
         })
 
