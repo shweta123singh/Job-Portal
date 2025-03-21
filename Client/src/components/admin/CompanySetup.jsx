@@ -9,6 +9,7 @@ import { COMPANY_API_END_POINT } from '@/utils/constant';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'sonner';
 import { useDispatch, useSelector } from 'react-redux';
+import useGetCompanyById from '@/hooks/useGetCompanyById';
 
 const CompanySetup = () => {
 
@@ -16,10 +17,14 @@ const CompanySetup = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const { singleCompany } = useSelector(store => store.company);
-
     const params = useParams();
     const companyId = params.id;
+
+
+    useGetCompanyById(companyId);
+
+    const { singleCompany } = useSelector(store => store.company);
+
 
     const [input, setInput] = useState({
         companyName: "",
@@ -62,7 +67,7 @@ const CompanySetup = () => {
 
             if (response.data.success) {
                 navigate("/admin/companies");
-                console.log(response);
+
 
 
 
@@ -80,10 +85,10 @@ const CompanySetup = () => {
 
     useEffect(() => {
         setInput({
-            name: singleCompany.companyName || "",
-            description: singleCompany.description || "",
-            website: singleCompany.website || "",
-            location: singleCompany.location || "",
+            companyName: singleCompany?.companyName || "",
+            description: singleCompany?.description || "",
+            website: singleCompany?.website || "",
+            location: singleCompany?.location || "",
             file: singleCompany?.file || null,
         })
     }, [singleCompany, companyId])
