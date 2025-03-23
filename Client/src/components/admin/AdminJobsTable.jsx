@@ -6,47 +6,44 @@ import { Edit2, MoreHorizontal } from 'lucide-react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
-const CompaniesTable = () => {
+const AdminJobsTable = () => {
 
 
-    const { companies, searchCompanyByText } = useSelector(store => store.company);
+    const { searchCompanyByText } = useSelector(store => store.company);
+    const { allAdminJobs } = useSelector(store => store.job);
     const navigate = useNavigate();
 
-    const [filterCompany, setFilterCompany] = useState(companies);
+    const [filterJobs, setFilterJobs] = useState(allAdminJobs);
 
     useEffect(() => {
-        const filteredCompany = companies.length >= 0 && companies.filter((company) => {
+        const filteredJobs = allAdminJobs.length >= 0 && allAdminJobs.filter((job) => {
             if (!searchCompanyByText) {
                 return true
             };
-            return company?.companyName?.toLowerCase().includes(searchCompanyByText.toLowerCase())
+            return job?.companyName?.toLowerCase().includes(searchCompanyByText.toLowerCase())
         })
 
-        setFilterCompany(filteredCompany);
+        setFilterJobs(filteredJobs);
 
-    }, [companies, searchCompanyByText])
+    }, [allAdminJobs, searchCompanyByText])
 
     return (
         <div>
             <Table>
-                <TableCaption>A list of your recent register companies</TableCaption>
+                <TableCaption>A list of your recent posted jobs</TableCaption>
                 <TableHeader>
                     <TableRow>
-                        <TableHead>Logo</TableHead>
-                        <TableHead>Name</TableHead>
+                        <TableHead>Company Name</TableHead>
+                        <TableHead>Role</TableHead>
                         <TableHead>Date</TableHead>
                         <TableHead className="text-right">Action</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
                     {
-                        filterCompany && filterCompany?.map((company) => (
+                        filterJobs && filterJobs?.map((company) => (
                             <tr key={company._id}>
-                                <TableCell>
-                                    <Avatar>
-                                        <AvatarImage src={company?.logo || "logo"} alt="logo" />
-                                    </Avatar>
-                                </TableCell>
+
                                 <TableCell>{company?.companyName}</TableCell>
                                 <TableCell>{company.createdAt.slice("T")}</TableCell>
                                 <TableCell className="text-right">
@@ -74,4 +71,4 @@ const CompaniesTable = () => {
     )
 }
 
-export default CompaniesTable;
+export default AdminJobsTable;
