@@ -24,10 +24,18 @@ function Profile() {
                 <div className=' bg-white border border-gray-200 rounded-2xl my-5 p-8'>
                     <div className='flex justify-between'>
                         <div className='flex items-center gap-4'>
-                            <Avatar className="h-24 w-24">
-                                <AvatarImage src={user?.profile?.profilePhoto} alt="profile" />
 
+                            <Avatar className="cursor-pointer w-24 h-24">
+                                {
+                                    user?.profile?.profilePhoto
+                                        ?
+                                        <AvatarImage src={user?.profile?.profilePhoto} alt="profile" />
+                                        :
+                                        <AvatarImage src="https://github.com/shadcn.png" alt="profile" />
+                                }
                             </Avatar>
+
+
                             <div>
                                 <h1 className='font-medium text-xl'>{user?.fullname}</h1>
                                 <p className=''>{user?.profile?.bio}</p>

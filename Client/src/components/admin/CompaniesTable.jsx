@@ -44,7 +44,9 @@ const CompaniesTable = () => {
                             <tr key={company._id}>
                                 <TableCell>
                                     <Avatar>
-                                        <AvatarImage src={company?.logo || "logo"} alt="logo" />
+                                        <AvatarImage
+                                            src={company?.logo || "https://th.bing.com/th/id/OIP.NU9zscMHAn83CpLA9fDjrgHaHa?rs=1&pid=ImgDetMain"}
+                                        />
                                     </Avatar>
                                 </TableCell>
                                 <TableCell>{company?.companyName}</TableCell>
