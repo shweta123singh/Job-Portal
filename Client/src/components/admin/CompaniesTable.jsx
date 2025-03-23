@@ -48,7 +48,7 @@ const CompaniesTable = () => {
                                     </Avatar>
                                 </TableCell>
                                 <TableCell>{company?.companyName}</TableCell>
-                                <TableCell>{company.createdAt.slice("T")}</TableCell>
+                                <TableCell>{company.createdAt.split("T")[0]}</TableCell>
                                 <TableCell className="text-right">
                                     <Popover>
                                         <PopoverTrigger className=" cursor-pointer">

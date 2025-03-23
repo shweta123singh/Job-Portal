@@ -9,23 +9,23 @@ import { useNavigate } from 'react-router-dom'
 const AdminJobsTable = () => {
 
 
-    const { searchCompanyByText } = useSelector(store => store.company);
-    const { allAdminJobs } = useSelector(store => store.job);
+    const { allAdminJobs, searchJobByText } = useSelector(store => store.job);
     const navigate = useNavigate();
 
     const [filterJobs, setFilterJobs] = useState(allAdminJobs);
 
     useEffect(() => {
         const filteredJobs = allAdminJobs.length >= 0 && allAdminJobs.filter((job) => {
-            if (!searchCompanyByText) {
+            if (!searchJobByText) {
                 return true
             };
-            return job?.companyName?.toLowerCase().includes(searchCompanyByText.toLowerCase())
+            return job?.company?.companyName?.toLowerCase().includes(searchJobByText.toLowerCase()) ||
+                job?.title?.toLowerCase().includes(searchJobByText.toLowerCase())
         })
 
         setFilterJobs(filteredJobs);
 
-    }, [allAdminJobs, searchCompanyByText])
+    }, [allAdminJobs, searchJobByText])
 
     return (
         <div>
@@ -41,18 +41,18 @@ const AdminJobsTable = () => {
                 </TableHeader>
                 <TableBody>
                     {
-                        filterJobs && filterJobs?.map((company) => (
-                            <tr key={company._id}>
-
-                                <TableCell>{company?.companyName}</TableCell>
-                                <TableCell>{company.createdAt.slice("T")}</TableCell>
+                        filterJobs && filterJobs?.map((job) => (
+                            <tr key={job._id}>
+                                <TableCell>{job?.company?.companyName}</TableCell>
+                                <TableCell>{job?.title}</TableCell>
+                                <TableCell>{job?.createdAt.split("T")[0]}</TableCell>
                                 <TableCell className="text-right">
                                     <Popover>
                                         <PopoverTrigger className=" cursor-pointer">
                                             <MoreHorizontal />
                                         </PopoverTrigger>
                                         <PopoverContent className="w-32">
-                                            <div onClick={() => navigate(`/admin/companies/${company._id}`)} className='flex items-center w-fit cursor-pointer gap-2'>
+                                            <div onClick={() => navigate(`/admin/jobs/${job._id}`)} className='flex items-center w-fit cursor-pointer gap-2'>
                                                 <Edit2 className='w-4' />
                                                 <span>Edit</span>
                                             </div>
