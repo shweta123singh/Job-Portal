@@ -8,11 +8,16 @@ import { Label } from './ui/label';
 import AppliedJobTable from './AppliedJobTable';
 import UpdateProfileDialog from './UpdateProfileDialog';
 import { useSelector } from 'react-redux';
+import useGetAppliedJobs from '@/hooks/useGetAppliedJobs';
+import Footer from './shared/Footer';
 
 const skills = ["HTML", "CSS", "JAVASCRIPT", "REACTJS"];
 
 
 function Profile() {
+
+    useGetAppliedJobs();
+
     const [open, setOpen] = useState(false)
     const { user } = useSelector(store => store.auth);
 
@@ -20,12 +25,12 @@ function Profile() {
         <>
             <Navbar />
 
-            <div className='w-full px-[10%]'>
-                <div className=' bg-white border border-gray-200 rounded-2xl my-5 p-8'>
+            <div className='w-full px-[6%] max-sm:px-[4%]'>
+                <div className=' bg-white border border-gray-200 rounded-2xl my-5 p-8 max-sm:p-4 '>
                     <div className='flex justify-between'>
                         <div className='flex items-center gap-4'>
 
-                            <Avatar className="cursor-pointer w-24 h-24">
+                            <Avatar className="cursor-pointer w-24 h-24 max-sm:w-8 max-sm:h-8">
                                 {
                                     user?.profile?.profilePhoto
                                         ?
@@ -37,12 +42,12 @@ function Profile() {
 
 
                             <div>
-                                <h1 className='font-medium text-xl'>{user?.fullname}</h1>
-                                <p className=''>{user?.profile?.bio}</p>
+                                <h1 className='font-medium text-xl max-sm:text-lg'>{user?.fullname}</h1>
+                                <p className='max-sm:text-sm text-muted-foreground'>{user?.profile?.bio}</p>
                             </div>
 
                         </div>
-                        <Button onClick={() => setOpen(true)} className="text-right" variant="outline">
+                        <Button onClick={() => setOpen(true)} className="text-right max-sm:w-6 max-sm:h-6" variant="outline">
                             <Pen />
                         </Button>
                     </div>
@@ -88,7 +93,7 @@ function Profile() {
 
             </div>
 
-            <div className='bg-white rounded-2xl mx-[10%]'>
+            <div className='bg-white rounded-2xl mx-[10%] max-sm:mx-[6%] mt-7 mb-14'>
                 <h1 className='font-bold text-lg my-5'>Applied Job</h1>
                 {/* table */}
                 <AppliedJobTable />
@@ -98,6 +103,7 @@ function Profile() {
             {/* update profile */}
             <UpdateProfileDialog open={open} setOpen={setOpen} />
 
+            <Footer />
 
 
 

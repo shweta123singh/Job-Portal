@@ -119,7 +119,7 @@ export const getApplicants = async (req, res) => {
     }
 }
 
-
+// role === "recruiter"
 
 export const updateStatus = async (req, res) => {
     try {
