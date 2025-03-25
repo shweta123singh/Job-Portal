@@ -6,9 +6,9 @@ const jobRouter = express.Router()
 
 
 jobRouter.post("/post", authUser, postJob);
-jobRouter.get("/get", authUser, getAllJobs);
+jobRouter.get("/get", getAllJobs);
 jobRouter.get("/get-recruiter-job", authUser, getRecruiterJobs);
-jobRouter.get("/get/:id", authUser, getJobById);
+jobRouter.get("/get/:id", getJobById);
 
 
 

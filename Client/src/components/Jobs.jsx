@@ -4,8 +4,9 @@ import Footer from './shared/Footer'
 import FilterCard from './FilterCard'
 import Job from './Job'
 import { useDispatch, useSelector } from 'react-redux'
-import { setSearchedQuery } from '@/redux/jobSlice'
 import { motion } from 'framer-motion'
+import useGetAllJobs from '@/hooks/useGetAllJobs'
+import { setSearchedQuery } from '@/redux/jobSlice'
 
 
 // const jobs = [
@@ -16,9 +17,13 @@ import { motion } from 'framer-motion'
 function Jobs() {
 
     const dispatch = useDispatch();
+
+    useGetAllJobs();
     const { allJobs, searchedQuery } = useSelector(state => state.job);
 
-    const [filterJobs, setFilterJobs] = useState(allJobs);
+    const [filterJobs, setFilterJobs] = useState([]);
+
+
 
 
     useEffect(() => {
@@ -35,11 +40,20 @@ function Jobs() {
 
 
         }
-        // else {
-        //     setFilterJobs(allJobs)
-        // }
+        else {
+            setFilterJobs(allJobs)
+        }
 
     }, [allJobs, searchedQuery])
+
+
+    useEffect(() => {
+        return () => {
+            dispatch(setSearchedQuery(""));
+            console.log("trr");
+
+        }
+    }, [dispatch])
 
     return (
         <>

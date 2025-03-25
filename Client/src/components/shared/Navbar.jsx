@@ -9,12 +9,14 @@ import { toast } from 'sonner'
 import axios from 'axios'
 import { USER_API_END_POINT } from '@/utils/constant'
 import { setUser } from '@/redux/authSlice'
+import { setSearchedQuery } from '@/redux/jobSlice'
 
 const Navbar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const { user } = useSelector(store => store.auth)
+    const { user } = useSelector(store => store.auth);
+
 
     const logoutHandler = async () => {
         try {
@@ -33,6 +35,12 @@ const Navbar = () => {
         }
     }
 
+
+    const resetQuery = () => {
+        dispatch(setSearchedQuery(""))
+    }
+
+
     return (
         <div className='bg-white overflow-hidden'>
             <div className='flex items-center justify-between mx-auto max-w-7xl h-16'>
@@ -50,9 +58,9 @@ const Navbar = () => {
                                 </>
                                 : (
                                     <>
-                                        <li><Link to="/">Home</Link></li>
+                                        <li onClick={resetQuery}><Link to="/">Home</Link></li>
                                         <li><Link to="/jobs">Jobs</Link></li>
-                                        <li><Link to="/browse">Browse</Link></li>
+                                        <li onClick={resetQuery}><Link to="/browse">Browse</Link></li>
                                     </>
                                 )
                         }

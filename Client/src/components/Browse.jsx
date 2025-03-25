@@ -3,7 +3,7 @@ import Navbar from './shared/Navbar'
 import Footer from './shared/Footer'
 import Job from './Job'
 import { useDispatch, useSelector } from 'react-redux'
-import { setSearchedQuery } from '@/redux/jobSlice'
+import {  setSearchedQuery } from '@/redux/jobSlice'
 import useGetAllJobs from '@/hooks/useGetAllJobs'
 
 
@@ -19,10 +19,13 @@ const Browse = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        return () => {
+        
+        return () => { 
             dispatch(setSearchedQuery(""));
+            console.log("jiooo");
+
         }
-    }, [])
+    }, [dispatch])
 
     return (
         <>

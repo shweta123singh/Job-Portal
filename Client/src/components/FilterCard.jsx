@@ -3,6 +3,7 @@ import { RadioGroup, RadioGroupItem } from './ui/radio-group'
 import { Label } from './ui/label'
 import { useDispatch } from 'react-redux'
 import { setSearchedQuery } from '@/redux/jobSlice'
+import useGetAllJobs from '@/hooks/useGetAllJobs'
 
 // location
 // salary
@@ -25,6 +26,7 @@ const filterData = [
 
 
 const FilterCard = () => {
+    useGetAllJobs()
 
     const [selectedValue, setSelectedValue] = useState("");
     const dispatch = useDispatch();
@@ -36,7 +38,7 @@ const FilterCard = () => {
 
     useEffect(() => {
         // console.log(selectedValue);
-        dispatch(setSearchedQuery(selectedValue));
+        dispatch(setSearchedQuery(selectedValue))
     }, [selectedValue])
 
     return (

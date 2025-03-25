@@ -5,8 +5,9 @@ import CategoryCarousel from './CategoryCarousel'
 import LatestJobs from './LatestJobs'
 import Footer from './shared/Footer'
 import useGetAllJobs from '@/hooks/useGetAllJobs'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+
 
 
 const Home = () => {
@@ -14,13 +15,16 @@ const Home = () => {
   const naviagte = useNavigate();
   useGetAllJobs();
   const { user } = useSelector(store => store.auth)
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (user?.role === "recruiter") {
       naviagte("/admin/companies");
     }
+    console.log("l");
 
-  }, [])
+
+  }, [user, naviagte])
 
 
   return (
