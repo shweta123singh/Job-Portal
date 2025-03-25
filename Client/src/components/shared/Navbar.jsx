@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import { Button } from '../ui/button'
 import { Avatar, AvatarImage } from '../ui/avatar'
-import { LogOut, User2 } from 'lucide-react'
+import { BriefcaseBusiness, BuildingIcon, Home, HomeIcon, LogOut, Menu, MenuIcon, SearchCheck, User2 } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'sonner'
 import axios from 'axios'
@@ -37,18 +37,18 @@ const Navbar = () => {
 
 
     const resetQuery = () => {
-        dispatch(setSearchedQuery(""))
+        dispatch(setSearchedQuery(''))
     }
 
 
     return (
         <div className='bg-white overflow-hidden'>
-            <div className='flex items-center justify-between mx-auto max-w-7xl h-16'>
-                <div>
+            <div className='flex items-center justify-between mx-auto h-16 max-sm:px-3'>
+                <div onClick={() => navigate("/")}>
                     <h1 className='text-2xl font-bold'>Job <span className='text-[#F83002]'>Portal</span> </h1>
                 </div>
-                <div className='flex items-center gap-12'>
-                    <ul className='flex font-medium items-center gap-5'>
+                <div className='flex items-center gap-12 max-sm:gap-5'>
+                    <ul className='flex font-medium items-center gap-5 max-sm:hidden'>
                         {
                             user && user.role === "recruiter"
                                 ?
@@ -132,6 +132,69 @@ const Navbar = () => {
                                 </Popover>
                             </div >
                     }
+
+                    <div className='sm:hidden'>
+                        <Popover>
+                            <PopoverTrigger asChild>
+                                <Avatar className="cursor-pointer">
+                                    {
+                                        <MenuIcon className='mt-1' />
+                                    }
+                                </Avatar>
+                            </PopoverTrigger>
+                            <PopoverContent className="w-80">
+                                <div>
+                                    {
+                                        user && user.role === "recruiter"
+                                            ?
+                                            <div className='flex flex-col gap-3'>
+                                                <div onClick={() => navigate("/admin/companies")} className='flex items-center gap-3'>
+                                                    <BuildingIcon className='size-5' />
+                                                    <p className='text-lg font-medium'>Companies</p>
+                                                </div>
+
+                                                <div onClick={() => navigate("/admin/jobs")} className='flex items-center gap-3'>
+                                                    <BriefcaseBusiness />
+                                                    <p className='text-lg font-medium' to="/admin/jobs">Jobs</p>
+                                                </div>
+                                            </div>
+                                            : (
+                                                <>
+                                                    <div className='flex flex-col gap-3'>
+                                                        <div
+                                                            onClick={() => {
+                                                                navigate("/")
+                                                                dispatch(setSearchedQuery(""))
+                                                            }}
+                                                            className='flex items-center gap-3'>
+                                                            <HomeIcon className='size-5' />
+                                                            <p className='text-lg font-medium'>Home</p>
+                                                        </div>
+
+                                                        <div onClick={() => navigate("/jobs")} className='flex items-center gap-3'>
+                                                            <BriefcaseBusiness />
+                                                            <p className='text-lg font-medium' to="/admin/jobs">Jobs</p>
+                                                        </div>
+
+                                                        <div
+                                                            onClick={() => {
+                                                                navigate("/browse")
+                                                                dispatch(setSearchedQuery(""))
+                                                            }}
+                                                            className='flex items-center gap-3'>
+                                                            <SearchCheck />
+                                                            <p className='text-lg font-medium' to="/admin/jobs">Browse</p>
+                                                        </div>
+                                                    </div>
+
+                                                </>
+                                            )
+                                    }
+                                </div>
+                            </PopoverContent>
+                        </Popover>
+
+                    </div>
 
 
                 </div >
