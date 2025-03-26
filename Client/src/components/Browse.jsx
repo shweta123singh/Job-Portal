@@ -3,7 +3,7 @@ import Navbar from './shared/Navbar'
 import Footer from './shared/Footer'
 import Job from './Job'
 import { useDispatch, useSelector } from 'react-redux'
-import {  setSearchedQuery } from '@/redux/jobSlice'
+import { setSearchedQuery } from '@/redux/jobSlice'
 import useGetAllJobs from '@/hooks/useGetAllJobs'
 
 
@@ -19,8 +19,8 @@ const Browse = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        
-        return () => { 
+
+        return () => {
             dispatch(setSearchedQuery(""));
             console.log("jiooo");
 
@@ -32,7 +32,7 @@ const Browse = () => {
 
             <Navbar />
 
-            <div className='px-[5%] md:px-[8%] w-full my-10'>
+            <div className='px-[5%] lg:px-[10%] w-full my-10'>
                 <h1 className='font-bold text-xl my-10'>Search Results ({allJobs.length})</h1>
 
                 {
@@ -42,15 +42,19 @@ const Browse = () => {
                     </div>
                 }
 
-                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 '>
-                    {
-                        allJobs.map((job) => {
-                            return (
-                                <Job key={job._id} job={job} />
-                            )
-                        })
-                    }
+                <div className=' overflow-y-auto pb-5'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 '>
+                        {
+                            allJobs.map((job) => {
+                                return (
+                                    <Job key={job._id} job={job} />
+                                )
+                            })
+                        }
+                    </div>
                 </div>
+
+
             </div>
 
             <Footer />

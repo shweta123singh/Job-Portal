@@ -23,8 +23,8 @@ function HeroSection() {
                 <span className='mx-auto px-4 py-2 rounded-full bg-gray-100 text-[#F83002] font-medium'>No. 1 Job Hunt Website</span>
                 {/* <p>/ your dream job today!</p> */}
 
-                <h1 className='sm:text-4xl lg:text-5xl font-bold'>Search, Apply & <br /> Get Your <span className='text-[#6A38C2] '>Dream Jobs</span></h1>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium harum officiis id at impedit.</p>
+                <h1 className='sm:text-4xl lg:text-5xl font-bold'>Search, Apply & <br /> Get Your <span className='text-[#6A38C2] hover:text-[#6c38c0eb] cursor-pointer' onClick={()=>navigate("/browse")} >Dream Jobs</span></h1>
+                <p className='px-3 text-gray-700'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium harum officiis id at impedit.</p>
                 <div className='flex sm:w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto'>
                     <input type="text"
                         placeholder='Find your dream jobs'

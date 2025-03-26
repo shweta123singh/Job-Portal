@@ -43,8 +43,8 @@ const Navbar = () => {
 
     return (
         <div className='bg-white overflow-hidden'>
-            <div className='flex items-center justify-between mx-auto h-16 max-sm:px-3'>
-                <div onClick={() => navigate("/")}>
+            <div className='flex items-center justify-between mx-auto h-16 max-sm:px-3 sm:px-[5%] lg:px-[10%]'>
+                <div onClick={() => navigate("/")} className='cursor-pointer'>
                     <h1 className='text-2xl font-bold'>Job <span className='text-[#F83002]'>Portal</span> </h1>
                 </div>
                 <div className='flex items-center gap-12 max-sm:gap-5'>
@@ -150,10 +150,10 @@ const Navbar = () => {
                                             <div className='flex flex-col gap-3'>
                                                 <div onClick={() => navigate("/admin/companies")} className='flex items-center gap-3'>
                                                     <BuildingIcon className='size-5' />
-                                                    <p className='text-lg font-medium'>Companies</p>
+                                                    <p className='text-lg font-medium cursor-pointer'>Companies</p>
                                                 </div>
 
-                                                <div onClick={() => navigate("/admin/jobs")} className='flex items-center gap-3'>
+                                                <div onClick={() => navigate("/admin/jobs")} className='flex items-center gap-3 cursor-pointer'>
                                                     <BriefcaseBusiness />
                                                     <p className='text-lg font-medium' to="/admin/jobs">Jobs</p>
                                                 </div>
@@ -166,12 +166,12 @@ const Navbar = () => {
                                                                 navigate("/")
                                                                 dispatch(setSearchedQuery(""))
                                                             }}
-                                                            className='flex items-center gap-3'>
+                                                            className='flex items-center gap-3 cursor-pointer'>
                                                             <HomeIcon className='size-5' />
                                                             <p className='text-lg font-medium'>Home</p>
                                                         </div>
 
-                                                        <div onClick={() => navigate("/jobs")} className='flex items-center gap-3'>
+                                                        <div onClick={() => navigate("/jobs")} className='flex items-center gap-3 cursor-pointer'>
                                                             <BriefcaseBusiness />
                                                             <p className='text-lg font-medium' to="/admin/jobs">Jobs</p>
                                                         </div>
@@ -181,7 +181,7 @@ const Navbar = () => {
                                                                 navigate("/browse")
                                                                 dispatch(setSearchedQuery(""))
                                                             }}
-                                                            className='flex items-center gap-3'>
+                                                            className='flex items-center gap-3 cursor-pointer'>
                                                             <SearchCheck />
                                                             <p className='text-lg font-medium' to="/admin/jobs">Browse</p>
                                                         </div>

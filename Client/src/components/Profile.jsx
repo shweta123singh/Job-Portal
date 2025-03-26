@@ -42,7 +42,7 @@ function Profile() {
 
 
                             <div>
-                                <h1 className='font-medium text-xl max-sm:text-lg'>{user?.fullname}</h1>
+                                <h1 className='font-bold text-xl max-sm:text-lg'>{user?.fullname}</h1>
                                 <p className='max-sm:text-sm text-muted-foreground'>{user?.profile?.bio}</p>
                             </div>
 
@@ -64,7 +64,7 @@ function Profile() {
 
 
                         <div className='my-5'>
-                            <h1>Skills</h1>
+                            <h1 className='text-md font-bold mb-1'>Skills</h1>
                             <div className='flex items-center gap-2 flex-wrap'>
                                 {
                                     user?.profile?.skills.length !== 0

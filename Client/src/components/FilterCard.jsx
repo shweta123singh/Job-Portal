@@ -12,7 +12,7 @@ import useGetAllJobs from '@/hooks/useGetAllJobs'
 const filterData = [
     {
         filterType: "Location",
-        array: ["Delhi", "Banglore", "Mumbai", "Ranchi", "Patna"]
+        array: ["Delhi NCR", "Bengluru", "Mumbai", "Hyderabad", "Ranchi", "Patna"]
     },
     {
         filterType: "Industry",
@@ -42,7 +42,7 @@ const FilterCard = () => {
     }, [selectedValue])
 
     return (
-        <div className='w-full bg-white p-3 rounded-md'>
+        <div className='w-full bg-white py-3 rounded-md'>
             <h1 className='font-bold text-lg'>Filter Jobs</h1>
             <hr className='mt-3' />
 
@@ -55,9 +55,9 @@ const FilterCard = () => {
                                 data.array.map((item, idx) => {
                                     const itemId = `r${index - idx}`
                                     return (
-                                        <div className='flex items-center spac-x-2 my-2' key={idx}>
+                                        <div className='flex items-center spac-x-2 gap-1 my-2' key={idx}>
                                             <RadioGroupItem value={item} id={itemId} />
-                                            <Label htmlFor={itemId}>{item}</Label>
+                                            <Label className="text-base/5" htmlFor={itemId}>{item}</Label>
                                         </div>
                                     )
 
