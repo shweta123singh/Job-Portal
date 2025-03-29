@@ -10,7 +10,7 @@ import UpdateProfileDialog from './UpdateProfileDialog';
 import { useSelector } from 'react-redux';
 import useGetAppliedJobs from '@/hooks/useGetAppliedJobs';
 import Footer from './shared/Footer';
-
+import { motion } from "framer-motion"
 const skills = ["HTML", "CSS", "JAVASCRIPT", "REACTJS"];
 
 
@@ -25,7 +25,12 @@ function Profile() {
         <>
             <Navbar />
 
-            <div className='w-full px-[6%] max-sm:px-[2%]'>
+            <motion.div
+                initial={{ opacity: 0.2, y: 100 }}
+                transition={{ duration: 1 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{}}
+                className='w-full px-[6%] max-sm:px-[2%]'>
                 <div className=' bg-white border border-gray-200 rounded-2xl my-5 p-8 max-sm:p-4 '>
                     <div className='flex justify-between'>
                         <div className='flex items-center gap-4'>
@@ -91,7 +96,7 @@ function Profile() {
                 </div>
 
 
-            </div>
+            </motion.div>
 
             <div className='bg-white rounded-2xl mx-[10%] max-sm:mx-[6%] mt-7 mb-14'>
                 <h1 className='font-bold text-lg my-5'>Applied Job</h1>
