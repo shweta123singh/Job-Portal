@@ -89,6 +89,7 @@ export const getAppliedJobs = async (req, res) => {
 }
 
 
+
 // role === "recruiter"
 
 export const getApplicants = async (req, res) => {
