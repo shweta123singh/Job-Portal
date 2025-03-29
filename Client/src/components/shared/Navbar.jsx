@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import { Button } from '../ui/button'
@@ -10,6 +10,7 @@ import axios from 'axios'
 import { USER_API_END_POINT } from '@/utils/constant'
 import { setUser } from '@/redux/authSlice'
 import { setSearchedQuery } from '@/redux/jobSlice'
+import { motion } from "framer-motion"
 
 const Navbar = () => {
     const dispatch = useDispatch();
@@ -58,7 +59,7 @@ const Navbar = () => {
                                 </>
                                 : (
                                     <>
-                                        <li onClick={resetQuery}><Link to="/">Home</Link></li>
+                                        <motion.li onClick={resetQuery}><Link to="/">Home</Link></motion.li>
                                         <li><Link to="/jobs">Jobs</Link></li>
                                         <li onClick={resetQuery}><Link to="/browse">Browse</Link></li>
                                     </>

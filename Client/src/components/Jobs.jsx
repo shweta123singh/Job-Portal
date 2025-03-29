@@ -79,7 +79,12 @@ function Jobs() {
                         <div className='text-right my-4' onClick={() => setIsFilterBoxOpen(!isFilterBoxOpen)}>
                             <Button className=''>Filter</Button>
                         </div>
-                        <div className='mb-5'>
+                        <motion.div
+                            initial={{ opacity: 0.2, y: 100 }}
+                            transition={{ duration: 1 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{}}
+                            className='mb-5'>
                             {
                                 isFilterBoxOpen &&
                                 <>
@@ -88,7 +93,7 @@ function Jobs() {
                                 </>
 
                             }
-                        </div>
+                        </motion.div>
                     </div>
 
 
@@ -98,7 +103,7 @@ function Jobs() {
                         {
                             filterJobs.length <= 0 ? <span>No Jobs Found</span> :
                                 <div className=' h-[95vh] overflow-y-auto pb-5'>
-                                    <div className='max-sm: grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4'>
+                                    <div className='max-sm: grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 m-4'>
                                         {
                                             filterJobs.map((job) => (
                                                 <motion.div

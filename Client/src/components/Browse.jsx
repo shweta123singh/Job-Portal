@@ -5,7 +5,7 @@ import Job from './Job'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSearchedQuery } from '@/redux/jobSlice'
 import useGetAllJobs from '@/hooks/useGetAllJobs'
-
+import { motion } from "framer-motion"
 
 // const jobs = [
 //     1, 2, 3, 4, 5, 6, 7, 8, 9, 10
@@ -33,7 +33,12 @@ const Browse = () => {
             <Navbar />
 
             <div className='px-[5%] lg:px-[10%] w-full my-10'>
-                <h1 className='font-bold text-xl my-10'>Search Results ({allJobs.length})</h1>
+                <motion.h1
+                    initial={{ opacity: 0.2, y: 100 }}
+                    transition={{ duration: 1 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{}}
+                    className='font-bold text-xl my-10'>Search Results ({allJobs.length})</motion.h1>
 
                 {
                     allJobs.length <= 0 &&
@@ -42,7 +47,12 @@ const Browse = () => {
                     </div>
                 }
 
-                <div className=' overflow-y-auto pb-5'>
+                <motion.div
+                    initial={{ opacity: 0.2, y: 100 }}
+                    transition={{ duration: 1 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{}}
+                    className=' overflow-y-auto pb-5'>
                     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 '>
                         {
                             allJobs.map((job) => {
@@ -52,7 +62,7 @@ const Browse = () => {
                             })
                         }
                     </div>
-                </div>
+                </motion.div>
 
 
             </div>
