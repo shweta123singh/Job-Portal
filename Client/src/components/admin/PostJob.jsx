@@ -82,6 +82,7 @@ const PostJob = () => {
                                 type="text"
                                 name="title"
                                 value={input.title}
+                                placeholder="Write job title"
                                 onChange={changeEventHandler}
                                 className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"
                             />
@@ -91,6 +92,7 @@ const PostJob = () => {
                             <Input
                                 type="text"
                                 name="description"
+                                placeholder="Write job Description"
                                 value={input.description}
                                 onChange={changeEventHandler}
                                 className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"
@@ -103,15 +105,17 @@ const PostJob = () => {
                                 name="requirements"
                                 value={input.requirements}
                                 onChange={changeEventHandler}
+                                placeholder="Seprated with Comma"
                                 className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"
                             />
                         </div>
                         <div>
                             <Label>Salary</Label>
                             <Input
-                                type="text"
+                                type="number"
                                 name="salary"
                                 value={input.salary}
+                                placeholder="Write in LPA"
                                 onChange={changeEventHandler}
                                 className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"
                             />
@@ -122,6 +126,7 @@ const PostJob = () => {
                                 type="text"
                                 name="location"
                                 value={input.location}
+                                placeholder="Job Loaction"
                                 onChange={changeEventHandler}
                                 className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"
                             />
@@ -131,6 +136,7 @@ const PostJob = () => {
                             <Input
                                 type="text"
                                 name="jobType"
+                                placeholder="Full Time or Part Time"
                                 value={input.jobType}
                                 onChange={changeEventHandler}
                                 className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"
@@ -139,8 +145,9 @@ const PostJob = () => {
                         <div>
                             <Label>Experience Level</Label>
                             <Input
-                                type="text"
+                                type="number"
                                 name="experience"
+                                placeholder="Experience required"
                                 value={input.experience}
                                 onChange={changeEventHandler}
                                 className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"
@@ -151,6 +158,7 @@ const PostJob = () => {
                             <Input
                                 type="number"
                                 name="position"
+                                placeholder="Write no. of opening"
                                 value={input.position}
                                 onChange={changeEventHandler}
                                 className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1"

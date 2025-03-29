@@ -91,6 +91,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                     className="col-span-3"
                                     name="fullname"
                                     type="text"
+                                    placeholder="Write your full name"
                                     value={input.fullname}
                                     onChange={changeEventHandler}
                                 />
@@ -102,6 +103,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                     className="col-span-3"
                                     name="email"
                                     type="email"
+                                    placeholder="Write your email address"
                                     value={input.email}
                                     onChange={changeEventHandler}
                                 />
@@ -113,6 +115,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                     className="col-span-3"
                                     name="phoneNumber"
                                     value={input.phoneNumber}
+                                    placeholder="Write your phone number"
                                     onChange={changeEventHandler}
                                 />
                             </div>
@@ -123,6 +126,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                     className="col-span-3"
                                     name="bio"
                                     value={input.bio}
+                                    placeholder="Write about yourself"
                                     onChange={changeEventHandler}
                                 />
                             </div>
@@ -133,6 +137,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
                                     className="col-span-3"
                                     name="skills"
                                     value={input.skills}
+                                    placeholder="Seprated with comma"
                                     onChange={changeEventHandler}
                                 />
                             </div>

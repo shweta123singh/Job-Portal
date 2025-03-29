@@ -16,9 +16,10 @@ export const register = async (req, res) => {
             });
         }
         const file = req.file
+        let cloudResponse = ""
         if (file) {
             const fileUri = getDataUri(file)
-            const cloudResponse = await cloudinary.uploader.upload(fileUri.content)
+            cloudResponse = await cloudinary.uploader.upload(fileUri.content)
         }
 
         const existedUser = await User.findOne({ email: email });
@@ -31,7 +32,7 @@ export const register = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const url = null;
+        let url = null;
         if (file && cloudResponse) {
             url = cloudResponse.secure_url;
         }
