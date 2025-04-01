@@ -11,6 +11,8 @@ dotenv.config({});
 
 const app = express();
 
+connectDB()
+
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -35,6 +37,6 @@ app.use("/api/v1/application", applicantionRouter);
 
 
 app.listen(PORT, () => {
-    connectDB()
+    
     console.log(`Server running at port ${PORT}`);
 })
