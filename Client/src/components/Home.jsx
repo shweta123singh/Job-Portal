@@ -21,7 +21,7 @@ const Home = () => {
     if (user?.role === "recruiter") {
       naviagte("/admin/companies");
     }
-    console.log("l");
+    
 
 
   }, [user, naviagte])
