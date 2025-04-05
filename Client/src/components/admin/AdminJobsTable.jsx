@@ -52,10 +52,10 @@ const AdminJobsTable = () => {
                                             <MoreHorizontal />
                                         </PopoverTrigger>
                                         <PopoverContent className="w-32 flex flex-col gap-1.5 ">
-                                            <div onClick={() => navigate(`/admin/jobs/${job._id}`)} className='flex items-center w-fit cursor-pointer gap-2'>
+{/*                                             <div onClick={() => navigate(`/admin/jobs/${job._id}`)} className='flex items-center w-fit cursor-pointer gap-2'>
                                                 <Edit2 className='w-4' />
                                                 <span>Edit</span>
-                                            </div>
+                                            </div> */}
                                             <div onClick={() => navigate(`/admin/jobs/${job._id}/applicants`)} className='flex items-center w-fit cursor-pointer gap-2'>
                                                 <Eye className='w-4' />
                                                 <span>Applicants</span>
