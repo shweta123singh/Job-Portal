@@ -41,7 +41,7 @@ const JobApplicants = () => {
             <Navbar />
 
             <div className='px-[5%]'>
-                <h1 className='font-bold text-xl my-5'>Applicants {allApplicants.applications.length}</h1>
+                <h1 className='font-bold text-xl my-5'>Applicants {allApplicants?.applications?.length || 0}</h1>
                 <JobApplicantsTable />
             </div>
         </div>
