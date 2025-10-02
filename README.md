@@ -4,7 +4,7 @@ A modern, full-stack Job Portal built with the MERN stack, enabling students and
 
 ⚙️ Getting Started & Deployment
 1️⃣ Clone the Repository
-git clone https://github.com/<your-username>/job-portal.git
+git clone https://github.com/shweta123singh/Job-Portal.git 
 cd job-portal
 
 2️⃣ Environment Variables
@@ -15,7 +15,7 @@ Create a .env file inside the server/ directory or set them in Render dashboard:
 MONGODB_URI="your-mongodb-atlas-uri"
 
 # Server
-PORT=5000
+PORT=8000
 SECRET_KEY="your-jwt-secret"
 
 # Cloudinary (optional if using image upload)
@@ -118,7 +118,6 @@ CRUD operations for companies & jobs
 
 MIT License — Open-source project
 
-👩‍💻 Author
-
-Shweta Singh
-🔗 LinkedIn
+👨‍💻 Author
+- **Shweta Singh**
+- 🔗 [LinkedIn](https://www.linkedin.com/in/25shwetasingh/)
