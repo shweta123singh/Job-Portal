@@ -23,10 +23,6 @@ const corsOptions = {
 }
 app.use(cors(corsOptions));
 
-app.get("/",(req,res)=>{
-    res.send("Welcome to the server");
-})
-
 const PORT = process.env.PORT || 3000;
 
 
@@ -35,6 +31,18 @@ app.use("/api/v1/company", companyRouter);
 app.use("/api/v1/job", jobRouter);
 app.use("/api/v1/application", applicantionRouter);
 
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve React frontend
+app.use(express.static(path.join(__dirname, "../client/build")));
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 app.listen(PORT, () => {
     
