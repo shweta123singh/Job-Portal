@@ -22,7 +22,7 @@ const useGetAllCompanies = () => {
             }
         }
         fetchAllCompany();
-    }, [])
+    }, [dispatch])
 
 
 

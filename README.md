@@ -1,149 +1,124 @@
-# 💼 Job Portal App
+💼 Job Portal App (Render Ready)
 
-A modern, full-stack Job Portal built with the powerful **MERN stack** — enabling both job seekers (students) and recruiters to connect seamlessly. With a clean, animated, and responsive UI, this platform allows users to explore opportunities, post jobs, and manage applications with ease.
+A modern, full-stack Job Portal built with the MERN stack, enabling students and recruiters to connect seamlessly. With a clean, animated, and responsive UI, this platform allows users to explore opportunities, post jobs, and manage applications efficiently.
 
----
-
-## ✨ Features
-
-### ✅ General
-- 🔐 **Authentication System** — Secure login & registration using JWT
-- 👥 **Role-Based Access** — Separate dashboards for students and recruiters
-- 🌐 **Clean, Responsive UI** — Built with Tailwind CSS & shadcn/ui
-- 🎯 **Dynamic Routing & State Management** — Smooth navigation across the app
-
-### 🎓 Student Role
-- Browse and search job listings
-- Apply to jobs with one click
-- Track application status in personal dashboard
-
-### 🧑‍💼 Recruiter Role
-- Post new job opportunities
-- View applicants for each job
-- Edit or delete job postings
-- Manage all listings from a unified dashboard
-
----
-
-## 🎨 UI & Animations
-
-The UI is built with **Tailwind CSS** and enhanced with **shadcn/ui** components for consistency and accessibility. Smooth animations and transitions are added using **Framer Motion**, delivering a modern and engaging user experience.
-
-- Responsive layout for mobile, tablet, and desktop
-- Dark/light mode support (optional if implemented)
-- Animated modals, buttons, and transitions
-- Accessible and consistent component design
-
----
-
-## 🛠️ Tech Stack
-
-### 🧑‍💻 Frontend
-- **React.js** – Component-based architecture
-- **Tailwind CSS** – Utility-first CSS for clean, responsive UI
-- **shadcn/ui** – Beautiful, headless UI components
-- **Framer Motion** – Animations and motion effects
-- **React Router** – Client-side routing
-- **Axios** – API communication
-
-### 🖥️ Backend
-- **Node.js** – Server-side JavaScript runtime
-- **Express.js** – Web framework for APIs
-- **MongoDB** – NoSQL database for storing user/job data
-- **Mongoose** – MongoDB object modeling for Node.js
-- **JWT (JSON Web Token)** – Authentication and authorization
-
----
-
-## 📁 Project Structure
-
-### job-portal/ ├── client/ # React + Tailwind frontend │ ├── components/ │ ├── pages/ │ └── ... ├── server/ # Express backend API │ ├── routes/ │ ├── controllers/ │ └── models/ └── README.md
-
----
-
-
----
-
-## 🔒 Authentication Flow
-
-- **Users register/login with their email and password**
-
-- **JWT tokens are issued and stored securely**
-
-- **Access is restricted based on user roles (student/recruiter)**
-
-- **Protected routes for job posting, applications, and dashboards**
-
----
-
-## ⚙️ Getting Started
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/shubham79a/job-portal.git
+⚙️ Getting Started & Deployment
+1️⃣ Clone the Repository
+git clone https://github.com/<your-username>/job-portal.git
 cd job-portal
-```
 
-### 2. Setup Environment Variables
-Create a .env file inside the server/ directory with:
+2️⃣ Environment Variables
 
-```bash
-MONGODB_URI = ""
-PORT = 8000
-SECRET_KEY = ""
+Create a .env file inside the server/ directory or set them in Render dashboard:
 
-CLOUDINARY_API_KEY = ""
-CLOUDINARY_SECRET_KEY = ""
-CLOUDINARY_NAME = ""
+# MongoDB Atlas
+MONGODB_URI="your-mongodb-atlas-uri"
 
-NODE_ENV === ""
-```
+# Server
+PORT=5000
+SECRET_KEY="your-jwt-secret"
 
-### 3. Install Dependencies
+# Cloudinary (optional if using image upload)
+CLOUDINARY_API_KEY="your-cloudinary-api-key"
+CLOUDINARY_SECRET_KEY="your-cloudinary-secret"
+CLOUDINARY_NAME="your-cloudinary-cloud-name"
 
-```bash
-# Install frontend packages
+# Environment
+NODE_ENV="development"
+
+
+Render Notes:
+
+On Render, do NOT use a local .env file. Go to your Web Service → Environment → Add Environment Variable → Use the same keys as above.
+
+Render automatically assigns process.env.PORT.
+
+3️⃣ Install Dependencies
+# Frontend
 cd client
 npm install
 
-# Install backend packages
+# Backend
 cd ../server
 npm install
-```
 
-### 4. Run the Application
-
-```bash
-# Start backend server
+4️⃣ Run Locally
+# Backend
 cd server
 npm run dev
 
-# Start frontend dev server
+# Frontend
 cd ../client
 npm start
-```
-
-### Open in browser:
-- **Frontend → http://localhost:5137**
-- **Backend → http://localhost:5000**
-
----
 
 
-## 📜 License
-- **This project is open-source and licensed under the MIT License.**
+Open in browser:
 
----
+Frontend → http://localhost:5173
+
+Backend → http://localhost:8000
+
+5️⃣ Deploy on Render
+
+Go to Render
+ → New → Web Service
+
+Connect GitHub → Select your repo
+
+Configure:
+
+Branch: main
+
+Environment: Node
+
+Build Command: npm install
+
+Start Command: npm start
+
+Add Environment Variables (MONGODB_URI, SECRET_KEY, Cloudinary keys, etc.)
+
+Click Create Web Service → Render builds & deploys automatically
+
+6️⃣ Project Structure
+job-portal/
+├── client/       # React + Tailwind frontend
+│   ├── components/
+│   ├── pages/
+│   └── ...
+├── server/       # Express backend API
+│   ├── routes/
+│   ├── controllers/
+│   ├── models/
+│   └── index.js
+└── README.md
+
+7️⃣ Backend Notes
+
+Server listens on dynamic port from process.env.PORT for Render:
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 
-## 👨‍💻 Author
-- **Made with 💙 by Shubham**
-- **🔗 Connect on [LinkedIn](https://www.linkedin.com/in/shubham-kumar-894799290/)
+Connects to MongoDB Atlas via process.env.MONGODB_URI
 
----
+Protected routes for authentication & job management
 
+✨ Features
 
-## 🙌 Contributions
-**Feel free to fork the repo, submit issues, or open a pull request.**
-**Suggestions and contributions are always welcome!**
+🔐 JWT Authentication
+
+👥 Role-based access (Student / Recruiter)
+
+🌐 Responsive UI with Tailwind CSS & Framer Motion
+
+CRUD operations for companies & jobs
+
+📜 License
+
+MIT License — Open-source project
+
+👩‍💻 Author
+
+Shweta Singh
+🔗 LinkedIn
